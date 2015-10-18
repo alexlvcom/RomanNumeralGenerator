@@ -1,0 +1,18 @@
+{
+  "require": {
+    "nikic/fast-route": "*"
+  },
+  "require-dev": {
+    "symfony/var-dumper": "*",
+    "phpunit/phpunit": "5.0.*",
+    "squizlabs/php_codesniffer": "2.*"
+  },
+  "autoload": {
+    "classmap": [
+    ],
+    "psr-4": {
+      "": "",
+      "RomanNumerals\\Testing\\": "tests"
+    }
+  }
+}
