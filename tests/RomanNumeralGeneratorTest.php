@@ -73,6 +73,16 @@ class RomanNumeralGeneratorTest extends \PHPUnit_Framework_TestCase
         $this->generator->parse($romanNumber);
     }
 
+    /**
+     * @dataProvider canThrowIsNotANumberException_DataProvider
+     * @param $arabicNumber
+     */
+    public function testCanThrowIsNotANumberException($arabicNumber)
+    {
+        $this->setExpectedException('InvalidArgumentException', "$arabicNumber is not a number.");
+        $this->generator->generate($arabicNumber);
+    }
+
     public function numeralsDataProvider()
     {
         return json_decode(file_get_contents(__DIR__.'/roman-numerals-list.json'), true);
@@ -96,6 +106,13 @@ class RomanNumeralGeneratorTest extends \PHPUnit_Framework_TestCase
     {
         return [
             ['IM'], ['ID'], ['IC'], ['IL'], ['VM'], ['VD'], ['VC'], ['XM'], ['XD'], ['LM']
+        ];
+    }
+
+    public function canThrowIsNotANumberException_DataProvider()
+    {
+        return [
+            ['AA', 'Aa', '1a', 'aa9']
         ];
     }
 }

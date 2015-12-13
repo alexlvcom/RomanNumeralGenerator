@@ -17,6 +17,10 @@ class RomanNumeralGenerator implements IRomanNumeralGenerator
      */
     public function generate($arabicNumber)
     {
+        if (!is_numeric($arabicNumber)) {
+            throw new InvalidArgumentException("$arabicNumber is not a number.");
+        }
+
         if (((int)$arabicNumber > 0 && (int)$arabicNumber <= 3999) === false) {
             throw new InvalidArgumentException('Numbers from 1 to 3999 only supported.');
         }
