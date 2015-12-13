@@ -2,8 +2,6 @@ angular.module('RomanNumeralConverterApp')
 
     .controller('IndexController', function ($scope, RomanNumeralConverterService) {
 
-        //$scope.arabicNumber = null;
-        //$scope.romanNumeral = null;
         $scope.arabicNumber = 3999;
         $scope.romanNumeral = 'MMMCMXCIX';
         $scope.errorMessage = null;
