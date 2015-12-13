@@ -10,7 +10,7 @@ require __DIR__.'/vendor/autoload.php';
 $routes = [
     [
         'GET',
-        '/api/generate/{arabicNumber:\d+}',
+        '/api/generate/{arabicNumber:\w+}',
         'RomanNumerals\ConvertController@generate'
     ],
     [
@@ -21,11 +21,13 @@ $routes = [
 ];
 
 $container = new Container();
+
 $container->bind('RomanNumerals\ConvertController', function () {
     $object = new ConvertController();
     $object->setRomanNumeralGenerator(new RomanNumeralGenerator());
     return $object;
 });
+
 $container->bind('RomanNumerals\Controller', function () {
     return new ConvertController();
 });

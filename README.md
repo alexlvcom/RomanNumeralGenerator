@@ -1,7 +1,7 @@
 # Roman Numeral Generator
 ---
 
-### Library + API for conversion of Arabic number into Roman numeral and vice versa.
+### Library + API + Web App for conversion of Arabic number into Roman numeral and vice versa.
 
 #### Dependencies:
 - PHP >= 5.6

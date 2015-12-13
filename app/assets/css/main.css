@@ -1,0 +1,29 @@
+/*
+  Allow angular.js to be loaded in body, hiding cloaked elements until
+  templates compile.  The !important is important given that there may be
+  other selectors that are more specific or come later and might alter display.
+ */
+[ng\:cloak], [ng-cloak], .ng-cloak {
+    display: none !important;
+}
+
+div.converter-form, div.info {
+    margin-top: 40px;
+}
+
+.form-large {
+    font-size: 30px;
+}
+
+.form-large .control-label {
+    padding-top: 20px;
+    padding-bottom: 10px;
+    line-height: normal;
+}
+
+.form-large input, .form-large button {
+    font-size: 30px;
+    padding: 10px;
+    height: auto;
+    line-height: normal;
+}

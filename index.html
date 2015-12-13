@@ -1,0 +1,80 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Roman Numeral Converter</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="shortcut icon" href="/app/assets/img/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="app/assets/css/normalize.css">
+    <link rel="stylesheet" href="app/assets/css/main.css">
+    <script src="app/assets/js/vendor/modernizr.min.js"></script>
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="app/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link href="app/assets/css/sticky-footer-navbar.css" rel="stylesheet">
+
+    <script src="app/assets/js/vendor/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="app/assets/css/vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="app/assets/css/vendor/bootstrap-theme.min.css">
+    <script src="app/assets/js/vendor/bootstrap.min.js"></script>
+
+    <script src="app/assets/js/vendor/angular.min.js"></script>
+
+    <!-- Loading Application -->
+    <script src="app/assets/js/app/init.js"></script>
+    <script src="app/assets/js/app/services.js"></script>
+    <script src="app/assets/js/app/app.js"></script>
+
+</head>
+
+<body ng-app="RomanNumeralConverterApp">
+
+<!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
+
+
+<div class="container" ng-controller="IndexController">
+    <div class="page-header">
+        <h1>Roman Numeral Converter</h1>
+    </div>
+
+    <h3>This app lets you convert Arabic Numbers to Roman Numerals and vice versa.</h3>
+
+    <div ng-include src="'app/partials/converterForm.html'" class="converter-form"></div>
+
+    Learn more about <a href="https://en.wikipedia.org/wiki/Roman_numerals">Roman Numerals</a>.
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <p class="text-muted">&copy; 2015 AlexLV.com</p>
+    </div>
+</footer>
+
+
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-36908469-4', 'auto');
+    ga('send', 'pageview');
+
+</script>
+</body>
+</html>

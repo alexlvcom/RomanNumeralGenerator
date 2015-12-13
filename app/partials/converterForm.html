@@ -1,0 +1,33 @@
+<div ng-controller="IndexController">
+
+    <div class="alert alert-danger" role="alert" ng-hide="errorMessage === null" ng-cloak>
+        <strong>Oh snap!</strong> {{errorMessage}}
+    </div>
+
+    <div class="row">
+        <div class="col-lg-4">
+            <form class="form-large">
+                <div class="form-group">
+                    <label for="inputArabicNumber">Arabic Number</label>
+                    <input type="text" class="form-control" id="inputArabicNumber"
+                           ng-model="arabicNumber" ng-keyup="arabicToRoman($event)" placeholder="3999" value="3999">
+                </div>
+
+                <div class="form-group">
+                    <label for="inputRomanNumeral">Roman Numeral</label>
+                    <input type="text" class="form-control" id="inputRomanNumeral" ng-model="romanNumeral"
+                           ng-keyup="romanToArabic($event)" placeholder="MMMCMXCIX" value="MMMCMXCIX">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="well info">
+        <strong>Try with API:</strong>
+        <br><br>
+        Arabic to Roman: http://roman.alexlv.com/api/generate/3999
+        <br>
+        Roman to Arabic: http://roman.alexlv.com/api/parse/MMMCMXCIX
+    </div>
+
+</div>
