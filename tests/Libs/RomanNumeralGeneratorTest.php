@@ -1,13 +1,15 @@
 <?php
 
-namespace RomanNumerals\Testing;
+namespace RomanNumerals\Tests\Libs;
 
-use RomanNumerals\RomanNumeralGenerator;
+use RomanNumerals\Libs\RomanNumeralGenerator;
+use PHPUnit\Framework\TestCase;
+use InvalidArgumentException;
 
-class RomanNumeralGeneratorTest extends \PHPUnit_Framework_TestCase
+class RomanNumeralGeneratorTest extends TestCase
 {
     /**
-     * @var \RomanNumerals\RomanNumeralGenerator
+     * @var RomanNumeralGenerator
      */
     private $generator;
 
@@ -43,13 +45,16 @@ class RomanNumeralGeneratorTest extends \PHPUnit_Framework_TestCase
 
     public function testGenerateThrowsSupportedNumbersException($romanNumber)
     {
-        $this->setExpectedException('InvalidArgumentException', 'Numbers from 1 to 3999 only supported.');
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('Numbers from 1 to 3999 only supported.');
+        
         $this->generator->generate($romanNumber);
     }
 
     public function testParseThrowsIncorrectSymbolExcenption()
     {
-        $this->setExpectedException('InvalidArgumentException', "XXG has symbol that doesn't exists in roman numerals.");
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('XXG has symbol that doesn\'t exists in roman numerals.');
         $this->generator->parse('XXG');
     }
 
@@ -59,7 +64,9 @@ class RomanNumeralGeneratorTest extends \PHPUnit_Framework_TestCase
      */
     public function testParseThrowsDisallowedRepetitionException($romanNumber)
     {
-        $this->setExpectedException('InvalidArgumentException', "$romanNumber doesn't seem to be correct roman numeral (incorrect symbol repetitions).");
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage("$romanNumber doesn't seem to be correct roman numeral (incorrect symbol repetitions).");
+        
         $this->generator->parse($romanNumber);
     }
 
@@ -69,7 +76,9 @@ class RomanNumeralGeneratorTest extends \PHPUnit_Framework_TestCase
      */
     public function testParseThrowsTooSmallNumberGoesBeforeLargeOneException($romanNumber)
     {
-        $this->setExpectedException('InvalidArgumentException', "$romanNumber doesn't seem to be correct roman numeral (too small number goes before larger one).");
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage("$romanNumber doesn't seem to be correct roman numeral (too small number goes before larger one).");
+        
         $this->generator->parse($romanNumber);
     }
 
@@ -79,13 +88,15 @@ class RomanNumeralGeneratorTest extends \PHPUnit_Framework_TestCase
      */
     public function testCanThrowIsNotANumberException($arabicNumber)
     {
-        $this->setExpectedException('InvalidArgumentException', "$arabicNumber is not a number.");
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage("$arabicNumber is not a number.");
+        
         $this->generator->generate($arabicNumber);
     }
 
     public function numeralsDataProvider()
     {
-        return json_decode(file_get_contents(__DIR__.'/roman-numerals-list.json'), true);
+        return json_decode(file_get_contents(__DIR__.'/../stubs/roman-numerals-list.json'), true);
     }
 
     public function generateThrowsSupportedNumbersException_DataProvider()

@@ -4,6 +4,7 @@ namespace RomanNumerals;
 
 use \FastRoute\RouteCollector as RouteCollector;
 use \FastRoute\Dispatcher as RouteDispatcher;
+use RomanNumerals\Controllers\Controller;
 
 class Router implements IRouter
 {
@@ -48,12 +49,12 @@ class Router implements IRouter
                 $controller->$method(...array_values($vars));
                 break;
             case RouteDispatcher::NOT_FOUND:
-                $controller = $container->make('RomanNumerals\Controller');
+                $controller = $container->make(Controller::class);
                 $controller->response(['error' => 'Command not found'], 404);
                 break;
             case RouteDispatcher::METHOD_NOT_ALLOWED:
                 $allowedMethods = $routeInfo[1];
-                $controller     = $container->make('RomanNumerals\Controller');
+                $controller     = $container->make(Controller::class);
                 $controller->response(['error' => 'Method is not allowed, allowed methods are: '.implode(', ', $allowedMethods)], 405);
                 break;
         }

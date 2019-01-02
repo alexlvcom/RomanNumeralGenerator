@@ -1,8 +1,9 @@
 <?php
 
-namespace RomanNumerals;
+namespace RomanNumerals\Controllers;
 
 interface IController
 {
     public function index();
 }
+
