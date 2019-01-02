@@ -1,6 +1,6 @@
 <?php
 
-namespace RomanNumerals;
+namespace RomanNumerals\Libs;
 
 use \InvalidArgumentException;
 

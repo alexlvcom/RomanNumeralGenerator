@@ -1,6 +1,8 @@
 <?php
 
-namespace RomanNumerals;
+namespace RomanNumerals\Controllers;
+
+use RomanNumerals\Libs\IRomanNumeralGenerator;
 
 class Controller implements IController
 {
@@ -15,12 +17,12 @@ class Controller implements IController
     }
 
     /**
-     * @var \RomanNumerals\IRomanNumeralGenerator
+     * @var IRomanNumeralGenerator
      */
     private $romanNumeralGenerator;
 
     /**
-     * @return \RomanNumerals\IRomanNumeralGenerator
+     * @return IRomanNumeralGenerator
      */
     public function getRomanNumeralGenerator()
     {
@@ -28,7 +30,7 @@ class Controller implements IController
     }
 
     /**
-     * @param \RomanNumerals\IRomanNumeralGenerator $romanNumeralGenerator
+     * @param IRomanNumeralGenerator $romanNumeralGenerator
      */
     public function setRomanNumeralGenerator(IRomanNumeralGenerator $romanNumeralGenerator)
     {

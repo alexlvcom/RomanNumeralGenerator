@@ -1,8 +1,9 @@
 <?php
 
-namespace RomanNumerals;
+namespace RomanNumerals\Controllers;
 
 use \Exception;
+use RomanNumerals\Libs\IRomanNumeralGenerator;
 
 class ConvertController extends Controller implements IRomanNumeralGenerator
 {
